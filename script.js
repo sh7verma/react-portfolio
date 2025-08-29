@@ -17,26 +17,9 @@ async function renderFeaturedPortfolio() {
   const projectsDiv = document.getElementById("projects");
   if (!projectsDiv) return;
 
-  projectsDiv.innerHTML = `
-    <section class="author-bio">
-      <img src="assets/og-image.webp" alt="Shubham Verma profile photo" class="author-photo" />
-      <div>
-        <h2>Shubham Verma</h2>
-        <p class="author-title">Senior Android Developer</p>
-        <p class="author-skills">
-          <strong>Skills:</strong> Kotlin, Jetpack Compose, TFLite, ML Kit, ONNX, Hilt, Coroutines, Firebase, MVVM, ExoPlayer, Maps API
-        </p>
-        <p class="author-contact">
-          <strong>Contact:</strong>
-          <a href="mailto:shubham.verma740@gmail.com">shubham.verma740@gmail.com</a> ·
-          <a href="https://www.linkedin.com/in/shubham-verma-670818173/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </p>
-      </div>
-    </section>
-    <div class="projects-grid"></div>
-  `;
-
-  const grid = projectsDiv.querySelector('.projects-grid');
+  const grid = document.createElement('div');
+  grid.className = 'projects-grid';
+  projectsDiv.appendChild(grid);
   grid.innerHTML = '<p>Loading projects...</p>';
 
   try {
@@ -44,51 +27,42 @@ async function renderFeaturedPortfolio() {
     const repos = await res.json();
     const portfolioRepos = repos.filter(r => r.topics && r.topics.includes("portfolio"));
 
-    // Add static projects
+    // Static projects to boost visibility
     const staticProjects = [
       {
         name: "Smart Payment Reconciliation",
-        description: "Automated reconciliation workflow for fintech dashboards, reducing manual work by 70% and improving accuracy.",
-        topics: ["Kotlin", "Coroutines", "Room", "MySQL", "FastAPI"]
+        description: "Fintech tool for automatic ledger syncing with FastAPI and Room.",
+        topics: ["Kotlin", "FastAPI", "Room"]
       },
       {
         name: "Offline Caption Generator",
-        description: "On-device image captioning using TFLite, enabling offline RAG-powered descriptions for quick results without internet.",
-        topics: ["TFLite", "ONNX", "MVVM"]
+        description: "TFLite-powered image captioning, fully offline.",
+        topics: ["TFLite", "ONNX", "Jetpack Compose"]
       },
       {
         name: "Enterprise Video Calling UX",
-        description: "Built call integration with custom UI using ConnectionService and Chime SDK, improving UX consistency.",
-        topics: ["Compose", "WebRTC", "Chime SDK", "Foreground Service"]
+        description: "Chime SDK + ConnectionService custom UI for seamless call integration.",
+        topics: ["Chime", "Compose", "ForegroundService"]
       },
       {
         name: "Loan Collection Dashboard",
-        description: "Android app for field agents to log collection activity and sync offline, improving agent productivity.",
-        topics: ["Kotlin", "WorkManager", "Room", "MVVM"]
+        description: "Offline-friendly Android app with WorkManager and Realm.",
+        topics: ["Kotlin", "WorkManager", "Realm"]
       },
       {
         name: "YouTube Shorts Automator",
-        description: "Python + JS pipeline to auto-generate titles/descriptions with GPT, and schedule YouTube Shorts uploads.",
-        topics: ["GPT", "YouTube API", "Automation", "Python"]
+        description: "GPT-powered auto-titling & upload scheduler.",
+        topics: ["GPT", "Python", "YouTube API"]
       }
     ];
 
     const allProjects = [...portfolioRepos, ...staticProjects];
-    if (!allProjects.length) {
-      grid.innerHTML = '<p>No portfolio projects found.</p>';
-      return;
-    }
-
     grid.innerHTML = '';
+
     for (const repo of allProjects) {
-      const previewUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/main/preview.png`;
       const card = document.createElement('div');
       card.className = 'project-card';
-
-      const imgTag = `<img src="${previewUrl}" alt="Preview of ${repo.name}" class="project-preview" loading="lazy" onerror="this.style.display='none'">`;
-
       card.innerHTML = `
-        ${imgTag}
         <h3>${repo.name}</h3>
         <p>${repo.description || 'No description provided.'}</p>
         <div class="tags">
@@ -97,6 +71,10 @@ async function renderFeaturedPortfolio() {
       `;
       grid.appendChild(card);
     }
+
+    if (!allProjects.length) {
+      grid.innerHTML = '<p>No portfolio projects found.</p>';
+    }
   } catch (e) {
     grid.innerHTML = '<p>Could not load projects.</p>';
     console.error(e);
@@ -104,9 +82,6 @@ async function renderFeaturedPortfolio() {
 }
 
 window.addEventListener('DOMContentLoaded', renderFeaturedPortfolio);
-
-// Accessibility: ARIA labels
-document.getElementById('themeToggle').setAttribute('aria-label', 'Toggle theme');
 
 // Scroll-to-top button functionality
 const scrollBtn = document.getElementById('scrollToTop');
