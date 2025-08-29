@@ -17,9 +17,20 @@ async function renderFeaturedPortfolio() {
   const projectsDiv = document.getElementById("projects");
   if (!projectsDiv) return;
 
+  // Check if profile photo exists
+  let photoTag = '';
+  try {
+    const imgRes = await fetch('assets/og-image.webp', { method: 'HEAD' });
+    if (imgRes.ok) {
+      photoTag = `<img src="assets/og-image.webp" alt="Shubham Verma profile photo" class="author-photo" />`;
+    }
+  } catch {
+    // Do nothing, photoTag remains empty
+  }
+
   projectsDiv.innerHTML = `
     <section class="author-bio">
-      <img src="assets/og-image.webp" alt="Shubham Verma profile photo" class="author-photo" />
+      ${photoTag}
       <div>
         <h2>Shubham Verma</h2>
         <p class="author-title">Senior Android Developer</p>
