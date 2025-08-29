@@ -17,25 +17,7 @@ async function renderFeaturedPortfolio() {
   const projectsDiv = document.getElementById("projects");
   if (!projectsDiv) return;
 
-  projectsDiv.innerHTML = `
-    <section class="author-bio">
-      <img src="assets/og-image.webp" alt="Shubham Verma profile photo" class="author-photo" />
-      <div>
-        <h2>Shubham Verma</h2>
-        <p class="author-title">Senior Android Developer</p>
-        <p class="author-skills">
-          <strong>Skills:</strong> Kotlin, Jetpack Compose, TFLite, ML Kit, ONNX, Hilt, Coroutines, Firebase, MVVM, ExoPlayer, Maps API
-        </p>
-        <p class="author-contact">
-          <strong>Contact:</strong>
-          <a href="mailto:shubham.verma740@gmail.com">shubham.verma740@gmail.com</a> ·
-          <a href="https://www.linkedin.com/in/shubham-verma-670818173/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </p>
-      </div>
-    </section>
-    <div class="projects-grid"></div>
-  `;
-
+  
   const grid = projectsDiv.querySelector('.projects-grid');
   grid.innerHTML = '<p>Loading projects...</p>';
 
