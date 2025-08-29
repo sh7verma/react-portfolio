@@ -17,7 +17,10 @@ async function renderFeaturedPortfolio() {
   const projectsDiv = document.getElementById("projects");
   if (!projectsDiv) return;
 
-  
+  projectsDiv.innerHTML = `
+    <div class="projects-grid"></div>
+  `;
+
   const grid = projectsDiv.querySelector('.projects-grid');
   grid.innerHTML = '<p>Loading projects...</p>';
 
