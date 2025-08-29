@@ -44,15 +44,49 @@ async function renderFeaturedPortfolio() {
     const repos = await res.json();
     const portfolioRepos = repos.filter(r => r.topics && r.topics.includes("portfolio"));
 
-    if (!portfolioRepos.length) {
+    // Add static projects
+    const staticProjects = [
+      {
+        name: "Smart Payment Reconciliation",
+        description: "Automated reconciliation workflow for fintech dashboards, reducing manual work by 70% and improving accuracy.",
+        topics: ["Kotlin", "Coroutines", "Room", "MySQL", "FastAPI"],
+        html_url: "#"
+      },
+      {
+        name: "Offline Caption Generator",
+        description: "On-device image captioning using TFLite, enabling offline RAG-powered descriptions for quick results without internet.",
+        topics: ["TFLite", "ONNX", "MVVM"],
+        html_url: "#"
+      },
+      {
+        name: "Enterprise Video Calling UX",
+        description: "Built call integration with custom UI using ConnectionService and Chime SDK, improving UX consistency.",
+        topics: ["Compose", "WebRTC", "Chime SDK", "Foreground Service"],
+        html_url: "#"
+      },
+      {
+        name: "Loan Collection Dashboard",
+        description: "Android app for field agents to log collection activity and sync offline, improving agent productivity.",
+        topics: ["Kotlin", "WorkManager", "Room", "MVVM"],
+        html_url: "#"
+      },
+      {
+        name: "YouTube Shorts Automator",
+        description: "Python + JS pipeline to auto-generate titles/descriptions with GPT, and schedule YouTube Shorts uploads.",
+        topics: ["GPT", "YouTube API", "Automation", "Python"],
+        html_url: "#"
+      }
+    ];
+
+    const allProjects = [...portfolioRepos, ...staticProjects];
+    if (!allProjects.length) {
       grid.innerHTML = '<p>No portfolio projects found.</p>';
       return;
     }
 
     grid.innerHTML = '';
-    for (const repo of portfolioRepos) {
+    for (const repo of allProjects) {
       const previewUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/main/preview.png`;
-
       const card = document.createElement('div');
       card.className = 'project-card';
 
