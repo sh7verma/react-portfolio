@@ -17,20 +17,9 @@ async function renderFeaturedPortfolio() {
   const projectsDiv = document.getElementById("projects");
   if (!projectsDiv) return;
 
-  // Check if profile photo exists
-  let photoTag = '';
-  try {
-    const imgRes = await fetch('assets/og-image.webp', { method: 'HEAD' });
-    if (imgRes.ok) {
-      photoTag = `<img src="assets/og-image.webp" alt="Shubham Verma profile photo" class="author-photo" />`;
-    }
-  } catch {
-    // Do nothing, photoTag remains empty
-  }
-
   projectsDiv.innerHTML = `
     <section class="author-bio">
-      ${photoTag}
+      <img src="assets/og-image.webp" alt="Shubham Verma profile photo" class="author-photo" />
       <div>
         <h2>Shubham Verma</h2>
         <p class="author-title">Senior Android Developer</p>
@@ -60,32 +49,27 @@ async function renderFeaturedPortfolio() {
       {
         name: "Smart Payment Reconciliation",
         description: "Automated reconciliation workflow for fintech dashboards, reducing manual work by 70% and improving accuracy.",
-        topics: ["Kotlin", "Coroutines", "Room", "MySQL", "FastAPI"],
-        html_url: "#"
+        topics: ["Kotlin", "Coroutines", "Room", "MySQL", "FastAPI"]
       },
       {
         name: "Offline Caption Generator",
         description: "On-device image captioning using TFLite, enabling offline RAG-powered descriptions for quick results without internet.",
-        topics: ["TFLite", "ONNX", "MVVM"],
-        html_url: "#"
+        topics: ["TFLite", "ONNX", "MVVM"]
       },
       {
         name: "Enterprise Video Calling UX",
         description: "Built call integration with custom UI using ConnectionService and Chime SDK, improving UX consistency.",
-        topics: ["Compose", "WebRTC", "Chime SDK", "Foreground Service"],
-        html_url: "#"
+        topics: ["Compose", "WebRTC", "Chime SDK", "Foreground Service"]
       },
       {
         name: "Loan Collection Dashboard",
         description: "Android app for field agents to log collection activity and sync offline, improving agent productivity.",
-        topics: ["Kotlin", "WorkManager", "Room", "MVVM"],
-        html_url: "#"
+        topics: ["Kotlin", "WorkManager", "Room", "MVVM"]
       },
       {
         name: "YouTube Shorts Automator",
         description: "Python + JS pipeline to auto-generate titles/descriptions with GPT, and schedule YouTube Shorts uploads.",
-        topics: ["GPT", "YouTube API", "Automation", "Python"],
-        html_url: "#"
+        topics: ["GPT", "YouTube API", "Automation", "Python"]
       }
     ];
 
@@ -110,7 +94,6 @@ async function renderFeaturedPortfolio() {
         <div class="tags">
           ${(repo.topics || []).map(t => `<span>${t}</span>`).join('')}
         </div>
-        <a class="btn" href="${repo.html_url}" target="_blank" rel="noreferrer">View Code</a>
       `;
       grid.appendChild(card);
     }
