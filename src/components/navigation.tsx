@@ -20,7 +20,9 @@ const Navigation = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 80;
+      // Account for navigation height - 64px on mobile, 80px on desktop
+      const navHeight = window.innerWidth >= 768 ? 80 : 64;
+      const offsetTop = element.offsetTop - navHeight;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'

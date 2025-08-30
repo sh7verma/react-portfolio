@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 
@@ -14,13 +15,13 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden hero-section">
       <div className="absolute inset-0 hero-gradient opacity-5"></div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-8 intersection-animate">
           <div className="space-y-6">
             <h1 className="text-6xl md:text-8xl font-bold text-foreground" data-testid="hero-name">
-              <span className="gradient-text font-extrabold">Shubham Verma</span>
+              <span className="font-extrabold text-primary">Shubham Verma</span>
             </h1>
             <h2 className="text-2xl md:text-4xl text-muted-foreground font-medium" data-testid="hero-title">
               Mobile App Developer – Android & AI
