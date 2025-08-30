@@ -19,8 +19,8 @@ const HeroSection = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-8 intersection-animate">
           <div className="space-y-6">
-            <h1 className="text-6xl md:text-8xl font-bold" data-testid="hero-name">
-              <span className="gradient-text">Shubham Verma</span>
+            <h1 className="text-6xl md:text-8xl font-bold text-foreground" data-testid="hero-name">
+              <span className="gradient-text font-extrabold">Shubham Verma</span>
             </h1>
             <h2 className="text-2xl md:text-4xl text-muted-foreground font-medium" data-testid="hero-title">
               Mobile App Developer – Android & AI
