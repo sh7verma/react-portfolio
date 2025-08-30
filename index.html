@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" class="no-js" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shubham Verma · Mobile App Developer – Android & AI</title>
+  <meta name="description" content="Mobile App Developer building AI-powered Android applications using Kotlin, Compose, Firebase & TFLite.">
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Shubham Verma · Mobile App Developer – Android & AI">
+  <meta property="og:description" content="Mobile Developer building fast, privacy‑first apps with modern Android and AI technologies.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta name="theme-color" content="#0b0f14">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+<header class="nav-wrap">
+  <nav class="nav container">
+    <a class="brand" href="#top" aria-label="Home">SV</a>
+    <button id="themeToggle" class="theme-btn" aria-label="Toggle theme" title="Toggle dark/light">🌓</button>
+    <ul class="nav-menu">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero container">
+    <div class="hero-text">
+      <h1>Mobile App Developer<span class="accent"> &</span> AI Specialist</h1>
+      <p class="lead">I'm <strong>Shubham Verma</strong>, a Mobile App Developer creating fast, scalable apps using <span class="pill">Kotlin</span>, <span class="pill">Jetpack Compose</span>, <span class="pill">Firebase</span>, and on-device AI with <span class="pill">TFLite</span> & <span class="pill">ONNX</span>.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See Projects</a>
+        <a class="btn ghost" href="assets/ShubhamVerma-Resume.pdf" download>Download Résumé</a>
+      </div>
+      <ul class="facts" role="list">
+  <li>20+ mobile apps shipped</li>
+  <li>Android · AI · Automation</li>
+  <li>Productivity · Fintech · OTT</li>
+</ul>
+    </div>
+    
+      <img src="assets/og-image.webp" alt="Shubham Verma profile photo" class="hero-img" onerror="this.style.display='none'">
+    </div>
+  </section>
+
+  <section id="projects" class="section container">
+    <header class="section-head">
+      <h2>Selected Projects</h2>
+      <p>Hands‑on builds that ship. More on <a href="https://github.com/sh7verma" target="_blank" rel="noreferrer">GitHub</a>.</p>
+    </header>
+    <div id="projects"></div>
+  </section>
+
+  <section id="experience" class="section container">
+    <header class="section-head">
+      <h2>Experience</h2>
+    </header>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <h3>Senior Android Developer</h3>
+          <p>Worked on a wide variety of Android applications across industries:<br>
+          - Fintech apps including LMS (Loan Management Systems), reconciliation tools, and collection dashboards<br>
+          - OTT and TV apps with adaptive streaming and offline playback using ExoPlayer<br>
+          - AI-based apps for image captioning, face detection, and summarization using TFLite, ML Kit, and ONNX<br>
+          - Location and mapping apps using Google Maps and MapMyIndia<br>
+          - Media utilities using FFmpeg for video/audio compression and processing<br>
+          - Dating apps with swipeable UI, Firebase chat, authentication, and push notifications<br>
+          - E-commerce apps featuring product listings, search filters, and checkout workflows<br>
+          - Uber-like ride-booking apps with real-time tracking, driver assignment, and trip flow logic</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <h3>Indie Projects · Mobile + AI</h3>
+          <p>RAG chat app, offline AI utilities, YouTube Shorts automation pipeline with title/description generation & scheduling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section container">
+    <header class="section-head">
+      <h2>Skills</h2>
+    </header>
+    <ul class="skills" role="list">
+      <li><strong>Android:</strong> Kotlin, Compose, Hilt, Coroutines, Flow, WorkManager, Navigation, Room</li>
+      <li><strong>AI on Mobile:</strong> TensorFlow Lite, ML Kit, ONNX Runtime, CameraX</li>
+      <li><strong>Backend:</strong> FastAPI, Ktor basics, MySQL · RAG concepts</li>
+      <li><strong>DevOps:</strong> CI/CD (GitHub Actions), Play Console, Keystores</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="section container">
+    <header class="section-head">
+      <h2>Contact</h2>
+      <p>Best way to reach me: email or LinkedIn.</p>
+    </header>
+    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
+      <div class="row">
+        <label> Name
+          <input required name="name" placeholder="Your name">
+        </label>
+        <label> Email
+          <input required type="email" name="email" placeholder="you@domain.com">
+        </label>
+      </div>
+      <label> Message
+        <textarea required name="message" rows="5" placeholder="Tell me about your project..."></textarea>
+      </label>
+      <button type="submit" class="btn primary">Send</button>
+    </form>
+    <div class="socials">
+      <a href="mailto:shubham.verma740@gmail.com" aria-label="Email">Email</a>
+      <a href="https://github.com/sh7verma" target="_blank" rel="noreferrer" aria-label="GitHub">GitHub</a>
+      <a href="https://www.linkedin.com/in/shubham-verma-670818173/" target="_blank" rel="noreferrer" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<!-- Scroll-to-top button -->
+<button id="scrollToTop" aria-label="Scroll to top" style="display:none;position:fixed;bottom:2rem;right:2rem;z-index:1000;" class="btn primary">↑</button>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 Shubham Verma — Built with HTML/CSS — Hosted on GitHub Pages</p>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
