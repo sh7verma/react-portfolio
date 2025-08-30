@@ -38,7 +38,7 @@ npm install
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+4. Open your browser and navigate to `https://shubham-portfolio-7.web.app/`
 
 ## Available Scripts
 
