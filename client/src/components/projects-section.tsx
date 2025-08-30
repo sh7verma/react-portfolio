@@ -4,11 +4,39 @@ import { ExternalLink } from "lucide-react";
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Smart Payment Reconciliation",
-      description: "Fintech tool for automatic ledger syncing using FastAPI, Room, and WorkManager for seamless payment processing.",
-      technologies: ["FastAPI", "Room", "WorkManager"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      alt: "Fintech dashboard interface"
+      title: "Dating App",
+      description: "Modern dating application with swipe functionality, real-time messaging, and location-based matching using Firebase and Google Maps API.",
+      technologies: ["Kotlin", "Firebase", "Google Maps", "Real-time DB"],
+      image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      alt: "Dating app interface with modern design"
+    },
+    {
+      title: "E-commerce App",
+      description: "Full-featured shopping application with product catalog, cart management, payment integration, and order tracking.",
+      technologies: ["Kotlin", "Room", "Payment Gateway", "Push Notifications"],
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      alt: "E-commerce mobile app shopping interface"
+    },
+    {
+      title: "JournalAI App",
+      description: "AI-powered journaling app with sentiment analysis, mood tracking, and intelligent writing suggestions using on-device ML models.",
+      technologies: ["Kotlin", "TFLite", "ML Kit", "Room"],
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      alt: "AI journaling app with smart features"
+    },
+    {
+      title: "Health App (Practo-like)",
+      description: "Comprehensive healthcare platform with doctor booking, telemedicine, health records, and appointment management system.",
+      technologies: ["Kotlin", "WebRTC", "Firebase", "Maps API"],
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      alt: "Healthcare app interface with doctor consultation"
+    },
+    {
+      title: "Uber-type App",
+      description: "On-demand ride-sharing application with real-time tracking, driver matching, payment integration, and route optimization.",
+      technologies: ["Kotlin", "Google Maps", "Firebase", "Payment API"],
+      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      alt: "Ride-sharing app with map and tracking features"
     },
     {
       title: "Offline Caption Generator",
@@ -23,13 +51,6 @@ const ProjectsSection = () => {
       technologies: ["Chime SDK", "ConnectionService", "Custom UI"],
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
       alt: "Professional video calling interface"
-    },
-    {
-      title: "Loan Collection Dashboard",
-      description: "Offline-first app using Realm and WorkManager for daily agent tasks with robust data synchronization.",
-      technologies: ["Realm", "WorkManager", "MVVM"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      alt: "Loan collection dashboard with data analytics"
     },
     {
       title: "YouTube Shorts Automator",

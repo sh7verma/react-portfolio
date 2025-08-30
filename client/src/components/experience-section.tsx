@@ -54,14 +54,9 @@ const ExperienceSection = () => {
           {experiences.map((exp, index) => (
             <Card key={index} className="card-hover intersection-animate" data-testid={`experience-${index}`}>
               <CardContent className="p-8">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-2xl font-semibold" data-testid={`exp-title-${index}`}>{exp.title}</h3>
-                    <p className="text-lg text-primary font-medium" data-testid={`exp-company-${index}`}>{exp.company}</p>
-                  </div>
-                  <div className="text-muted-foreground font-medium" data-testid={`exp-period-${index}`}>
-                    {exp.period}
-                  </div>
+                <div className="mb-4">
+                  <h3 className="text-2xl font-semibold" data-testid={`exp-title-${index}`}>{exp.title}</h3>
+                  <p className="text-lg text-primary font-medium" data-testid={`exp-company-${index}`}>{exp.company}</p>
                 </div>
                 <div className="space-y-3 text-muted-foreground">
                   {exp.responsibilities.map((responsibility, respIndex) => (
