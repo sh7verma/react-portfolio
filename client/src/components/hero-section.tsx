@@ -18,11 +18,11 @@ const HeroSection = () => {
       <div className="absolute inset-0 hero-gradient opacity-5"></div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-8 intersection-animate">
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold" data-testid="hero-name">
+          <div className="space-y-6">
+            <h1 className="text-6xl md:text-8xl font-bold" data-testid="hero-name">
               <span className="gradient-text">Shubham Verma</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl text-muted-foreground font-medium" data-testid="hero-title">
+            <h2 className="text-2xl md:text-4xl text-muted-foreground font-medium" data-testid="hero-title">
               Mobile App Developer – Android & AI
             </h2>
           </div>
