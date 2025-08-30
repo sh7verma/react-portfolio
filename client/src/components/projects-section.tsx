@@ -72,33 +72,36 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <Card key={project.title} className={`card-hover intersection-animate overflow-hidden ${project.span || ''}`} data-testid={`project-${project.title.toLowerCase().replace(/\s+/g, '-')}`}>
-              <img 
-                src={project.image} 
-                alt={project.alt}
-                className="w-full h-48 object-cover"
-                loading="lazy"
-              />
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-3" data-testid={`project-title-${index}`}>{project.title}</h3>
-                <p className="text-muted-foreground mb-4" data-testid={`project-description-${index}`}>
+            <Card key={project.title} className={`card-hover intersection-animate overflow-hidden bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-300 ${project.span || ''}`} data-testid={`project-${project.title.toLowerCase().replace(/\s+/g, '-')}`}>
+              <div className="relative">
+                <img 
+                  src={project.image} 
+                  alt={project.alt}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              <CardContent className="p-6 bg-card">
+                <h3 className="text-xl font-bold mb-3 text-foreground" data-testid={`project-title-${index}`}>{project.title}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`project-description-${index}`}>
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-primary/10 text-primary rounded text-xs"
+                      className="px-3 py-1 bg-primary/15 text-primary rounded-full text-xs font-medium border border-primary/20"
                       data-testid={`tech-${tech.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <button className="text-primary hover:text-primary/80 font-medium flex items-center gap-2" data-testid={`project-link-${index}`}>
-                  View Project <ExternalLink className="w-4 h-4" />
+                <button className="text-primary hover:text-primary/80 font-semibold flex items-center gap-2 group" data-testid={`project-link-${index}`}>
+                  View Project <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </CardContent>
             </Card>
