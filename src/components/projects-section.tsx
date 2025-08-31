@@ -1,5 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
+import { 
+  MotionDiv, 
+  MotionH2, 
+  MotionH3,
+  MotionP, 
+  MotionSpan, 
+  MotionButton,
+  MotionImg,
+  scrollReveal,
+  staggerContainer,
+  staggerItem,
+  hoverLift,
+  hoverGlow
+} from "@/components/ui/motion";
 
 const ProjectsSection = () => {
   const projects = [
@@ -65,48 +79,127 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="section-padding bg-muted/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 intersection-animate">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" data-testid="projects-title">Featured Projects</h2>
-          <p className="text-xl text-muted-foreground" data-testid="projects-subtitle">
+        <MotionDiv 
+          className="text-center mb-16"
+          variants={scrollReveal}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <MotionH2 
+            className="text-4xl md:text-5xl font-bold mb-4" 
+            data-testid="projects-title"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Featured Projects
+          </MotionH2>
+          <MotionP 
+            className="text-xl text-muted-foreground" 
+            data-testid="projects-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             A showcase of my most impactful work
-          </p>
-        </div>
+          </MotionP>
+        </MotionDiv>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <MotionDiv 
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {projects.map((project, index) => (
-            <Card key={project.title} className={`card-hover intersection-animate overflow-hidden bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-300 ${project.span || ''}`} data-testid={`project-${project.title.toLowerCase().replace(/\s+/g, '-')}`}>
-              <div className="relative">
-                <img 
+            <MotionDiv
+              key={project.title}
+              className={`card-hover overflow-hidden bg-card border border-border shadow-lg hover:shadow-xl transition-all duration-300 ${project.span || ''}`}
+              variants={staggerItem}
+              whileHover={{ 
+                y: -10,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+              }}
+              data-testid={`project-${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+            >
+              <div className="relative overflow-hidden">
+                <MotionImg 
                   src={project.image} 
                   alt={project.alt}
                   className="w-full h-48 object-cover"
                   loading="lazy"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <MotionDiv 
+                  className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
               </div>
               <CardContent className="p-6 bg-card">
-                <h3 className="text-xl font-bold mb-3 text-foreground" data-testid={`project-title-${index}`}>{project.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`project-description-${index}`}>
+                <MotionH3 
+                  className="text-xl font-bold mb-3 text-foreground" 
+                  data-testid={`project-title-${index}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  {project.title}
+                </MotionH3>
+                <MotionP 
+                  className="text-muted-foreground mb-4 leading-relaxed" 
+                  data-testid={`project-description-${index}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 + 0.1 }}
+                >
                   {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech) => (
-                    <span
+                </MotionP>
+                <MotionDiv 
+                  className="flex flex-wrap gap-2 mb-6"
+                  variants={staggerContainer}
+                  initial="initial"
+                  whileInView="animate"
+                >
+                  {project.technologies.map((tech, techIndex) => (
+                    <MotionSpan
                       key={tech}
                       className="px-3 py-1 bg-primary/15 text-primary rounded-full text-xs font-medium border border-primary/20"
+                      variants={staggerItem}
+                      whileHover={{ 
+                        scale: 1.1, 
+                        y: -2,
+                        boxShadow: "0 4px 12px rgba(59, 130, 246, 0.3)"
+                      }}
                       data-testid={`tech-${tech.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {tech}
-                    </span>
+                    </MotionSpan>
                   ))}
-                </div>
-                <button className="text-primary hover:text-primary/80 font-semibold flex items-center gap-2 group" data-testid={`project-link-${index}`}>
-                  View Project <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </MotionDiv>
+                <MotionButton 
+                  className="text-primary hover:text-primary/80 font-semibold flex items-center gap-2 group bg-transparent border-none p-0" 
+                  data-testid={`project-link-${index}`}
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  View Project 
+                  <MotionSpan
+                    className="w-4 h-4"
+                    whileHover={{ x: 3 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ExternalLink />
+                  </MotionSpan>
+                </MotionButton>
               </CardContent>
-            </Card>
+            </MotionDiv>
           ))}
-        </div>
+        </MotionDiv>
       </div>
     </section>
   );
